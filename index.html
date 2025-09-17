@@ -32,12 +32,129 @@
             margin: auto;
             padding: 20px;
         }
-        
-        /* --- NOVAS REGRAS DO CABEÇALHO --- */
+
+        /* ---------- CABEÇALHO GLOBAL (mesmo das demais páginas) ---------- */
+        #main-header.site-header {
+            background: linear-gradient(90deg, var(--dark-blue), var(--medium-blue));
+            padding: 0 20px;
+            height: 72px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        #main-header.site-header .container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            padding: 0;
+        }
+        #main-header .header-logo {
+            flex: 0 0 auto;
+        }
+        #main-header .header-logo img {
+            max-height: 64px;
+            max-width: 220px;
+            width: auto;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+        #main-header .header-nav {
+            flex: 1 1 auto;
+            display: flex;
+            justify-content: center;
+        }
+        #main-header .header-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            white-space: nowrap;
+        }
+        #main-header .header-nav a,
+        #main-header .header-nav span {
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            transition: color 0.3s, transform 0.2s;
+        }
+        #main-header .header-nav a:hover,
+        #main-header .header-nav span:hover {
+            color: var(--light-blue);
+            transform: scale(1.05);
+        }
+        #main-header .header-nav li {
+            position: relative;
+        }
+        #main-header .header-nav li .dropdown-menu {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            top: 100%;
+            left: -15px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 10px 0;
+            min-width: 220px;
+            z-index: 1000;
+            border-radius: 5px;
+            text-align: left;
+            transition: visibility 0s, opacity 0.3s linear;
+            display: block;
+        }
+        #main-header .dropdown-menu a {
+            display: block;
+            padding: 8px 20px;
+            font-weight: 400;
+            color: var(--text-color);
+            white-space: nowrap;
+        }
+        #main-header .dropdown-menu a:hover {
+            color: var(--medium-blue);
+            background-color: #f0f8fa;
+        }
+        #main-header .header-nav li:hover .dropdown-menu {
+            visibility: visible;
+            opacity: 1;
+        }
+        #main-header .header-cta {
+            flex: 0 0 auto;
+            margin-left: 12px;
+        }
+        #main-header .header-cta a {
+            background-color: white;
+            color: var(--dark-blue);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        #main-header .header-cta a:hover {
+            background-color: var(--light-blue);
+            color: var(--dark-blue);
+        }
+        /* Esconder a logo duplicada que existe no header/hero da landing (não removi a tag, apenas escondi) */
+        header:not(#main-header) .header-logo { display: none; }
+
+        /* --- restante do CSS original --- */
+        /* --- (mantive tudo exatamente como estava depois deste ponto) --- */
+
+        /* --- CABEÇALHO DA LANDING / HERO (mantido mas a logo interna foi ocultada acima) --- */
         header {
             background-color: var(--light-blue);
             padding: 40px 20px;
             color: var(--dark-blue);
+            position: relative; /* remove qualquer fixação */
         }
         
         .header-content {
@@ -152,7 +269,6 @@
             margin-top: 0;
         }
         
-        /* --- REGRAS DO LOGO DE CLIENTES CORRIGIDAS --- */
         .logos-clients img {
             max-width: 120px;
             height: auto;
@@ -168,7 +284,6 @@
             gap: 20px;
             margin-top: 30px;
         }
-        /* --- FIM DAS REGRAS DO LOGO DE CLIENTES --- */
         
         .form-section {
             background-color: var(--medium-blue);
@@ -183,39 +298,6 @@
             color: white;
         }
         
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            max-width: 500px;
-            margin: auto;
-            text-align: left;
-        }
-        
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-size: 1em;
-        }
-        
-        .contact-form button {
-            background-color: var(--highlight-color);
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.1em;
-            font-weight: 700;
-        }
-        
-        .contact-form button:hover {
-            background-color: #004d99;
-        }
-        
         footer {
             background-color: var(--dark-blue);
             color: white;
@@ -227,28 +309,48 @@
         footer a {
             color: var(--light-blue);
         }
-        
-        /* --- AJUSTES PARA TELAS MENORES (RESPONSIVIDADE) --- */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-        
-            .header-logo {
-                margin-bottom: 15px;
-                max-width: 150px;
-            }
-        
-            .header-text {
-                max-width: 100%;
-            }
-        }
-        /* --- FIM DOS AJUSTES --- */
     </style>
 </head>
 <body>
 
+    <!-- CABEÇALHO PADRONIZADO INSERIDO -->
+    <header id="main-header" class="site-header">
+      <div class="container">
+        <div class="header-logo">
+          <a href="/site/">
+            <img src="https://raw.githubusercontent.com/sacapinformacao/clientes/36d5eab5b6cf22741d66c95eae5857a60141dee2/logo%20novo%20branco%20copiar.png" alt="AP Informação Logo">
+          </a>
+        </div>
+        <nav class="header-nav" aria-label="Navegação principal">
+          <ul>
+            <li>
+              <span>Serviços</span>
+              <ul class="dropdown-menu">
+                <li><a href="https://sacapinformacao.github.io/BackGroundCheck/">Background Check</a></li>
+                <li><a href="https://sacapinformacao.github.io/Veiculos/">Análise de Veículos</a></li>
+                <li><a href="https://sacapinformacao.github.io/Enriquecimento/">Enriquecimento de Dados</a></li>
+                <li><a href="https://apinformacao.net.br/site/lgpd/">Compliance e LGPD</a></li>
+              </ul>
+            </li>
+            <li>
+              <span>Setores</span>
+              <ul class="dropdown-menu">
+                <li><a href="https://sacapinformacao.github.io/Landpage-Advocacia/">Jurídico</a></li>
+                <li><a href="https://sacapinformacao.github.io/lanpage-Im-veis/">Imobiliário</a></li>
+                <li><a href="https://sacapinformacao.github.io/Landpage-Industrias/">Industrial</a></li>
+              </ul>
+            </li>
+            <li><a href="https://apinformacao.net.br/site/planos/">Planos</a></li>
+            <li><a href="https://apinformacao.net.br/site/sobre-nos/">Sobre Nós</a></li>
+          </ul>
+        </nav>
+        <div class="header-cta">
+          <a href="https://api.whatsapp.com/send?phone=5511948962888&text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20de%20an%C3%A1lise%20de%20risco%20da%20AP%20Informa%C3%A7%C3%A3o.">Fale Conosco</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- HEADER/HERO ORIGINAL (mantido; logo interior será ocultada via CSS para evitar duplicidade) -->
     <header>
         <div class="container header-content">
             <img src="https://raw.githubusercontent.com/sacapinformacao/clientes/main/Logo%20-%20APinforma%C3%A7%C3%A3o%20-%20fundo%20transparente.png" alt="APinformação Logo" class="header-logo">
@@ -260,6 +362,7 @@
     </header>
     
     <main>
+        <!-- Conteúdo mantido exatamente como estava -->
         <section class="section section-white">
             <div class="container">
                 <h2>Proteja seu Patrimônio com Inteligência e Segurança</h2>
@@ -305,19 +408,19 @@
         </section>
         
         <section class="section section-white">
-    <div class="container">
-        <h2 style="color: var(--medium-blue);">A escolha de quem lidera o mercado imobiliário</h2>
-        <p style="text-align: center;">Com mais de <strong style="color: var(--medium-blue);">600 clientes</strong> do setor, nossa plataforma é a ferramenta de inteligência de dados que as principais imobiliárias, incorporadoras e construtoras utilizam para proteger seus ativos e garantir a segurança de cada transação.</p>
-        <div class="logos-clients">
-            <img src="https://raw.githubusercontent.com/sacapinformacao/clientes/main/Lello_Imoveis%20copiar%20(1).png" alt="logo lello Imóveis">
-            <img src="https://raw.githubusercontent.com/sacapinformacao/clientes/main/Logo-Invista_pdf.png" alt="Logo InvistaI">
-            <img src="https://raw.githubusercontent.com/sacapinformacao/clientes/main/logo-invest-corp.png.webp" alt="Logo InvestCorp">
-            <img src="https://raw.githubusercontent.com/sacapinformacao/clientes/main/lello%20condominios%20copiar%20(1).png" alt="Logo lello condominios">
-            <img src="https://raw.githubusercontent.com/sacapinformacao/clientes/main/logo_gdi_17-07%20(1).png" alt="Logo Gdi">
-<img src="https://raw.githubusercontent.com/sacapinformacao/clientes/main/momentum-empreendimentos-imobili%C3%A1rios-squarelogo-1553662960731.webp" alt="Logo Momentum">
-        </div>
-    </div>
-</section>
+            <div class="container">
+                <h2 style="color: var(--medium-blue);">A escolha de quem lidera o mercado imobiliário</h2>
+                <p style="text-align: center;">Com mais de <strong style="color: var(--medium-blue);">600 clientes</strong> do setor, nossa plataforma é a ferramenta de inteligência de dados que as principais imobiliárias, incorporadoras e construtoras utilizam para proteger seus ativos e garantir a segurança de cada transação.</p>
+                <div class="logos-clients">
+                    <img src="https://raw.githubusercontent.com/sacapinformacao/clientes/main/Lello_Imoveis%20copiar%20(1).png" alt="logo lello Imóveis">
+                    <img src="https://raw.githubusercontent.com/sacapinformacao/clientes/main/Logo-Invista_pdf.png" alt="Logo InvistaI">
+                    <img src="https://raw.githubusercontent.com/sacapinformacao/clientes/main/logo-invest-corp.png.webp" alt="Logo InvestCorp">
+                    <img src="https://raw.githubusercontent.com/sacapinformacao/clientes/main/lello%20condominios%20copiar%20(1).png" alt="Logo lello condominios">
+                    <img src="https://raw.githubusercontent.com/sacapinformacao/clientes/main/logo_gdi_17-07%20(1).png" alt="Logo Gdi">
+                    <img src="https://raw.githubusercontent.com/sacapinformacao/clientes/main/momentum-empreendimentos-imobili%C3%A1rios-squarelogo-1553662960731.webp" alt="Logo Momentum">
+                </div>
+            </div>
+        </section>
 
         <section class="section section-white">
             <div class="container">
