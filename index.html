@@ -12,7 +12,8 @@
     :root {
         --dark-blue: #194a86;
         --medium-blue: #2693ab;
-        --light-blue: #d4ebf5;
+        /* CORREÇÃO: Padronizando light-blue para #e0f2f7 */
+        --light-blue: #e0f2f7;
         --accent-color: #007bff;
         --text-color: #333;
         --highlight-color: #0056b3;
@@ -38,7 +39,7 @@
         padding: 0 20px
     }
 
-    /* Estilos do cabeçalho */
+    /* Estilos do cabeçalho (PADRONIZADOS) */
     header {
         background: linear-gradient(90deg, var(--dark-blue), var(--medium-blue));
         padding: 0 20px;
@@ -97,6 +98,7 @@
 
     .header-nav a:hover,
     .header-nav span:hover {
+        /* Garante que a cor de hover esteja correta */
         color: var(--light-blue);
         transform: scale(1.05);
     }
@@ -111,7 +113,8 @@
         position: absolute;
         top: 100%;
         left: -15px;
-        background-color: white;
+        /* Fundo branco que garante a visibilidade dos links */
+        background-color: white; 
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         padding: 10px 0;
         min-width: 220px;
@@ -126,7 +129,8 @@
         display: block;
         padding: 8px 20px;
         font-weight: 400;
-        color: var(--text-color);
+        /* Cor de texto escura no dropdown */
+        color: var(--text-color); 
         white-space: nowrap;
     }
 
@@ -211,7 +215,7 @@
     .section h2 { color:var(--dark-blue); text-align:center; margin:0 0 14px; font-size:1.8rem; }
     .service-list { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin-top:16px; }
 .destaque-imobiliario {
-    background-color: #d4ebf5; /* azul mais forte e visível */
+    background-color: var(--light-blue);
 }  
 .service-item {
         background:#fff; border-radius:8px; padding:22px; border:1px solid rgba(38,147,171,0.08);
@@ -225,7 +229,7 @@
     .logos-clients { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; align-items:center; margin-top:18px; }
     .logos-clients img { max-width:120px; height:auto; opacity:0.85; }
 
-    /* Estilos do rodapé */
+    /* Estilos do rodapé (PADRONIZADOS) */
     footer {
         background-color: var(--dark-blue);
         color: white;
@@ -329,6 +333,7 @@
 .hero,
 .section-light-bg,
 .destaque-imobiliario {
+    /* CORREÇÃO: Usando a nova cor light-blue e removendo a redundância no background */
     background-color: var(--light-blue) !important;
     padding: 40px 20px;
     text-align: center;
@@ -339,63 +344,19 @@
 .hero p { margin:0; color:var(--muted); font-size:1.05rem; line-height:1.5; max-width:900px; }
 
 
-/* == APinformacao: focused overrides for header/footer and hero (no body changes) == */
+/* Removendo overrides desnecessários no final, pois o CSS principal já está padronizado. */
 
-/* Ensure header logo in the main header is visible and constrained */
-#main-header .header-logo img,
-header .header-logo img {
-  max-height: 64px;
-  max-width: 220px;
-  width: auto;
-  height: auto;
-  display: block;
-  object-fit: contain;
-}
 
-/* Hide only the logo that exists inside the hero/header-content (keeps header/footer logos) */
-.header-content .header-logo { display: none !important; }
+/* Hero background ajustado para manter o gradiente sutil do padrão */
+.hero { background: linear-gradient(180deg, rgba(38,147,171,0.06), rgba(224,242,247,0.4)); padding: 56px 20px; text-align: center; color: var(--dark-blue); }
+.hero h1 { color: var(--dark-blue); }
+.hero p { color: var(--muted); }
 
-/* Hero title/subtitle visual parity with the Industriais page */
-.hero { background: linear-gradient(180deg, rgba(38,147,171,0.03), rgba(224,242,247,0.12)); padding: 40px 20px; text-align: center; color: #194a86; }
-.hero .container { display: flex; flex-direction: column; align-items: center; gap: 10px; max-width: 980px; }
-.hero h1 { color: #194a86 !important; font-size: 2.2rem !important; margin: 0 !important; font-weight: 700 !important; }
-.hero p { 
-    margin: 0; 
-    color: var(--dark-blue);  /* corrigido: usa cor definida */
-    font-size: 1.05rem; 
-    line-height: 1.5; 
-    max-width: 900px; 
-    text-align: center;       /* garante centralização */
-}
-
-/* Ensure header navigation and CTA look like the template */
-header { background: linear-gradient(90deg, #194a86, #2693ab); padding: 0 20px; height: 72px; box-sizing: border-box; display: flex; align-items: center; gap: 20px; position: sticky; top: 0; z-index: 1000; }
-.header-nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 24px; align-items: center; white-space: nowrap; }
-.header-nav a, .header-nav span { text-decoration: none; color: white; font-weight: 700; }
-.header-cta .cta-login { background-color: white; color: #194a86; padding: 12px 25px; border-radius: 30px; font-weight: bold; text-decoration: none; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
-.header-cta .cta-contact { background-color: transparent; border: 2px solid #FF8C00; color: white; padding: 12px 25px; border-radius: 30px; font-weight: bold; text-decoration: none; }
-
-/* Footer visual parity */
-footer { background-color: #194a86; color: white; padding: 40px 20px; font-size: 0.9em; }
-.footer-column h3 { color: #2693ab; border-bottom: 2px solid #2693ab; padding-bottom: 5px; display: inline-block; }
-.footer-column a { color: white; text-decoration: none; display: block; padding: 5px 0; }
-.footer-column a:hover { color: #e0f2f7; }
-
-/* Responsive tweaks for header/footer */
-@media (max-width: 768px) {
-  header { height: 60px; padding: 0 12px; justify-content: center; }
-  .header-logo img { max-height: 46px; max-width: 160px; }
-  .header-nav ul { display: none; }
-  .header-cta { display: none; }
-  .footer-content { flex-direction: column; align-items: center; text-align: center; }
-}
-/* == end overrides == */
-
+/* Fim da seção de estilos */
 </style>
 </head>
 <body>
 
-    <!-- CABEÇALHO PADRONIZADO INSERIDO -->
     <header>
     <div class="header-logo">
         <a href="https://sacapinformacao.github.io/Site/">
@@ -445,8 +406,7 @@ footer { background-color: #194a86; color: white; padding: 40px 20px; font-size:
     </div>
   </header>
 
-    <!-- HERO -->
-<section class="hero section-light-bg">
+    <section class="hero">
     <div class="container">
         <h1>Decisões Imobiliárias Estratégicas e Seguras</h1>
         <p>Nossa plataforma oferece uma solução completa para análise de risco, diligência e inteligência de dados, protegendo seu patrimônio em todas as operações imobiliárias.</p>
@@ -455,7 +415,6 @@ footer { background-color: #194a86; color: white; padding: 40px 20px; font-size:
 
     
     <main>
-        <!-- Conteúdo mantido exatamente como estava -->
         <section class="section section-white">
             <div class="container">
                 <h2>Proteja seu Patrimônio com Inteligência e Segurança</h2>
@@ -476,7 +435,7 @@ footer { background-color: #194a86; color: white; padding: 40px 20px; font-size:
             </div>
         </section>
 
-        <section class="section section-light-bg destaque-imobiliario">
+        <section class="section destaque-imobiliario">
     <div class="container">
         <h2>Soluções Abrangentes para o Mercado Imobiliário:</h2>
         <div class="service-list">
@@ -609,8 +568,3 @@ footer { background-color: #194a86; color: white; padding: 40px 20px; font-size:
 
 </body>
 </html>
-
-
-
-
-
