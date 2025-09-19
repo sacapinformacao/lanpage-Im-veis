@@ -205,19 +205,11 @@
     }
     
     /* Conteúdo da página */
-    
-    
-    
-    
-
-    /* Seções */
     .section { padding:48px 20px; margin-top:18px; background:#fff; border-radius:10px; box-shadow:0 4px 10px rgba(24,38,63,0.06); }
     .section h2 { color:var(--dark-blue); text-align:center; margin:0 0 14px; font-size:1.8rem; }
     .service-list { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin-top:16px; }
-.destaque-imobiliario {
-    background-color: var(--light-blue);
-}  
-.service-item {
+    .destaque-imobiliario { background-color: var(--light-blue); }  
+    .service-item {
         background:#fff; border-radius:8px; padding:22px; border:1px solid rgba(38,147,171,0.08);
         min-width:220px; flex:1 1 260px; box-shadow:0 6px 18px rgba(15,35,60,0.03);
     }
@@ -226,8 +218,11 @@
     .cta-button { display:inline-block; background:var(--accent-color); color:#fff; padding:12px 22px; border-radius:8px; text-decoration:none; font-weight:700; }
     .cta-button:hover { background:#0056b3; }
 
+    /* ESTILO PARA OS LOGOS DE CLIENTES */
     .logos-clients { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; align-items:center; margin-top:18px; }
-    .logos-clients img { max-width:120px; height:auto; opacity:0.85; }
+    .logos-clients img { max-width:120px; height:auto; opacity:0.85; filter: grayscale(100%); transition: filter 0.3s, opacity 0.3s; }
+    .logos-clients img:hover { opacity: 1; filter: grayscale(0%); }
+
 
     /* Estilos do rodapé (PADRONIZADOS) */
     footer {
@@ -342,9 +337,6 @@
 .hero .container { display:flex; flex-direction:column; align-items:center; gap:10px; max-width:980px; }
 .hero h1 { font-size:2.2rem; margin:0; font-weight:700; }
 .hero p { margin:0; color:var(--muted); font-size:1.05rem; line-height:1.5; max-width:900px; }
-
-
-/* Removendo overrides desnecessários no final, pois o CSS principal já está padronizado. */
 
 
 /* Hero background ajustado para manter o gradiente sutil do padrão */
@@ -465,14 +457,14 @@
                 <h2 style="color: var(--medium-blue);">A escolha de quem lidera o mercado imobiliário</h2>
                 <p style="text-align: center;">Com mais de <strong style="color: var(--medium-blue);">600 clientes</strong> do setor, nossa plataforma é a ferramenta de inteligência de dados que as principais imobiliárias, incorporadoras e construtoras utilizam para proteger seus ativos e garantir a segurança de cada transação.</p>
                 <div class="logos-clients">
-                    
-                    
-                    
-                    
-                    
-                    
+                    <img src="https://raw.githubusercontent.com/sacapinformacao/clientes/main/Lello_Imoveis%20copiar%20(1).png" alt="logo lello Imóveis">
+                    <img src="https://raw.githubusercontent.com/sacapinformacao/clientes/main/Logo-Invista_pdf.png" alt="Logo InvistaI">
+                    <img src="https://raw.githubusercontent.com/sacapinformacao/clientes/main/logo-invest-corp.png.webp" alt="Logo InvestCorp">
+                    <img src="https://raw.githubusercontent.com/sacapinformacao/clientes/main/lello%20condominios%20copiar%20(1).png" alt="Logo lello condominios">
+                    <img src="https://raw.githubusercontent.com/sacapinformacao/clientes/main/logo_gdi_17-07%20(1).png" alt="Logo Gdi">
+                    <img src="https://raw.githubusercontent.com/sacapinformacao/clientes/main/momentum-empreendimentos-imobili%C3%A1rios-squarelogo-1553662960731.webp" alt="Logo Momentum">
                 </div>
-            </div>
+                </div>
         </section>
 
         <section class="section section-white">
