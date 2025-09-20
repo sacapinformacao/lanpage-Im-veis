@@ -328,20 +328,134 @@
     .section { padding:48px 20px; margin-top:18px; background:#fff; border-radius:10px; box-shadow:0 4px 10px rgba(24,38,63,0.06); }
     .section h2 { color:var(--dark-blue); text-align:center; margin:0 0 14px; font-size:1.8rem; }
     .service-list { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin-top:16px; }
-    .destaque-imobiliario { background-color: var(--light-blue); }  
     .service-item {
         background:#fff; border-radius:8px; padding:22px; border:1px solid rgba(38,147,171,0.08);
         min-width:220px; flex:1 1 260px; box-shadow:0 6px 18px rgba(15,35,60,0.03);
     }
-    .service-item h3 { margin-top:0; color:var(--medium-blue); }
+    /* Títulos de cards em preto negrito */
+    .service-item h3 { 
+        margin-top:0; 
+        color:var(--text-color); 
+        font-weight: 700; 
+    }
     .form-section { background: var(--medium-blue); color:#fff; padding:40px 20px; border-radius:10px; text-align:center; }
-    .cta-button { display:inline-block; background:var(--accent-color); color:#fff; padding:12px 22px; border-radius:8px; text-decoration:none; font-weight:700; }
-    .cta-button:hover { background:#0056b3; }
+    /* Botão CTA com fundo branco e texto azul claro */
+    .cta-button { 
+        display:inline-block; 
+        background: #fff; 
+        color: var(--medium-blue); 
+        padding:12px 22px; 
+        border-radius:8px; 
+        text-decoration:none; 
+        font-weight:700;
+        border: 2px solid var(--medium-blue); 
+    }
+    .cta-button:hover { 
+        background: var(--light-blue); 
+        color: var(--medium-blue);
+    }
 
     /* ESTILO PARA OS LOGOS DE CLIENTES */
     .logos-clients { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; align-items:center; margin-top:18px; }
     .logos-clients img { max-width:120px; height:auto; opacity:0.85; filter: grayscale(100%); transition: filter 0.3s, opacity 0.3s; }
     .logos-clients img:hover { opacity: 1; filter: grayscale(0%); }
+
+
+    /* Estilos para a nova seção Hero (TOPO) */
+    .hero { 
+        /* ALTERADO PARA FUNDO BRANCO */
+        background: #fff; 
+        padding: 56px 20px; 
+        color: var(--dark-blue); 
+    }
+    .hero .container { 
+        display: flex; /* Ativa colunas */
+        justify-content: space-between; 
+        align-items: flex-start; 
+        gap: 40px;
+        max-width: 1200px;
+        text-align: left; /* Alinha o conteúdo à esquerda */
+    }
+
+    .hero-text {
+        flex: 1 1 55%; 
+        max-width: 60%;
+    }
+    .hero-text h1 { 
+        font-size: 2.8rem; 
+        margin: 0 0 10px; 
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--dark-blue);
+    }
+    .hero-text p { 
+        margin: 10px 0; 
+        color: var(--text-color);
+        font-size: 1.1rem; 
+        line-height: 1.6; 
+    }
+    .hero-text p strong {
+        font-size: 1.1em;
+    }
+
+    .hero-form-wrapper {
+        flex: 0 0 40%; 
+        background: #fff;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+    }
+    .hero-form-wrapper h2 {
+        color: var(--dark-blue);
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 1.6rem;
+        text-align: center;
+    }
+    .hero-form-wrapper form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .hero-form-wrapper input[type="text"],
+    .hero-form-wrapper input[type="email"],
+    .hero-form-wrapper input[type="tel"] {
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1em;
+        width: 100%;
+    }
+    .hero-form-wrapper button[type="submit"] {
+        background: var(--dark-blue); 
+        color: white;
+        padding: 14px 20px;
+        border: none;
+        border-radius: 8px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+    .hero-form-wrapper button[type="submit"]:hover {
+        background: var(--medium-blue);
+    }
+    
+    @media (max-width: 900px) {
+        .hero .container {
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+        }
+        .hero-text, .hero-form-wrapper {
+            flex: 1 1 100%;
+            max-width: 100%;
+            text-align: center;
+        }
+        .hero-text h1 {
+            font-size: 2rem;
+        }
+    }
 
 
     /* Estilos do rodapé (PADRONIZADOS) */
@@ -360,7 +474,6 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
     .footer-column {
-        /* CORREÇÃO APLICADA: Reduz a largura mínima para 5 colunas caberem no desktop */
         flex: 1 1 180px;
     }
     .footer-column h3 {
@@ -420,26 +533,6 @@
         }
     }
     
-
-.hero,
-.section-light-bg,
-.destaque-imobiliario {
-    background-color: var(--light-blue) !important;
-    padding: 40px 20px;
-    text-align: center;
-    color: var(--dark-blue);
-}
-.hero .container { display:flex; flex-direction:column; align-items:center; gap:10px; max-width:980px; }
-.hero h1 { font-size:2.2rem; margin:0; font-weight:700; }
-.hero p { margin:0; color:var(--muted); font-size:1.05rem; line-height:1.5; max-width:900px; }
-
-
-/* Hero background ajustado para manter o gradiente sutil do padrão */
-.hero { background: linear-gradient(180deg, rgba(38,147,171,0.06), rgba(224,242,247,0.4)); padding: 56px 20px; text-align: center; color: var(--dark-blue); }
-.hero h1 { color: var(--dark-blue); }
-.hero p { color: var(--muted); }
-
-/* Fim da seção de estilos */
 </style>
 </head>
 <body>
@@ -457,14 +550,14 @@
             <li>
                 <span>Serviços</span>
                 <ul class="dropdown-menu">
-                    <li><a href="https://sacapinformacao.github.io/BackGroundCheck/">Background Check</a></li>
-                    <li><a href="https://sacapinformacao.github.io/Veiculos/">Análise de Veículos</a></li>
-                    <li><a href="https://sacapinformacao.github.io/Enriquecimento/">Enriquecimento de Dados</a></li>
-                    <li><a href="https://sacapinformacao.github.io/Compliance/">Compliance e LGPD</a></li>
                     <li><a href="https://sacapinformacao.github.io/Cadastral/">Validação Cadastral</a></li>
+                    <li><a href="https://sacapinformacao.github.io/Enriquecimento/">Enriquecimento de Dados</a></li>
                     <li><a href="https://sacapinformacao.github.io/Credito/">Análise de Crédito</a></li>
+                    <li><a href="https://sacapinformacao.github.io/BackGroundCheck/">Background Check</a></li>
                     <li><a href="https://sacapinformacao.github.io/checagem-pre-processual/">Checagem Pré-processual</a></li>
                     <li><a href="https://sacapinformacao.github.io/devedores-e-reus/">Localização de Devedores e Réus</a></li>
+                    <li><a href="https://sacapinformacao.github.io/Veiculos/">Análise de Veículos</a></li>
+                    <li><a href="https://sacapinformacao.github.io/Compliance/">Compliance e LGPD</a></li>
                 </ul>
             </li>
             <li>
@@ -497,8 +590,22 @@
 
     <section class="hero">
     <div class="container">
-        <h1>Decisões Imobiliárias Estratégicas e Seguras</h1>
-        <p>Nossa plataforma oferece uma solução completa para análise de risco, diligência e inteligência de dados, protegendo seu patrimônio em todas as operações imobiliárias.</p>
+        <div class="hero-text">
+            <h1>A Escolha de Quem Lidera o Mercado Imobiliário.</h1>
+            <p>Decisões imobiliárias <strong>estratégicas e seguras</strong>. Nossa plataforma oferece uma solução completa para análise de risco, diligência e inteligência de dados, protegendo seu patrimônio em todas as operações.</p>
+            <p style="font-size: 1.05rem;">Com mais de <strong style="color: var(--dark-blue);">600 clientes</strong> do setor, somos a ferramenta de inteligência que as principais imobiliárias, incorporadoras e construtoras utilizam.</p>
+        </div>
+        
+        <div class="hero-form-wrapper">
+            <h2>Quero uma demonstração!</h2>
+            <form id="demonstrationForm" onsubmit="return submitFormToEmail(event)">
+                <input type="text" id="nome" name="nome" placeholder="Nome Completo" required>
+                <input type="email" id="email" name="email" placeholder="Email Corporativo" required>
+                <input type="tel" id="whatsapp" name="whatsapp" placeholder="Número de WhatsApp" required pattern="[0-9]{10,11}">
+                <input type="text" id="cnpj" name="cnpj" placeholder="Número de CNPJ" required>
+                <button type="submit">Solicitar minha demonstração</button>
+            </form>
+        </div>
     </div>
 </section>
 
@@ -524,13 +631,13 @@
             </div>
         </section>
 
-        <section class="section destaque-imobiliario">
+        <section class="section"> 
     <div class="container">
         <h2>Soluções Abrangentes para o Mercado Imobiliário:</h2>
         <div class="service-list">
             <div class="service-item">
                 <h3>Análise de Risco Completa</h3>
-                <p>Análise aprofundada de pessoas e empresas, para qualquer tipo de transação: locação, compra ou venda.</p>
+                <p>Nossa solução oferece a <strong>Análise de Ficha</strong> mais robusta do mercado. Realize uma análise aprofundada de pessoas e empresas, para qualquer tipo de transação: locação, compra ou venda.</p>
             </div>
             <div class="service-item">
                 <h3>Inteligência de Dados</h3>
@@ -548,11 +655,9 @@
     </div>
 </section>
 
-        
         <section class="section section-white">
             <div class="container">
-                <h2 style="color: var(--medium-blue);">A escolha de quem lidera o mercado imobiliário</h2>
-                <p style="text-align: center;">Com mais de <strong style="color: var(--medium-blue);">600 clientes</strong> do setor, nossa plataforma é a ferramenta de inteligência de dados que as principais imobiliárias, incorporadoras e construtoras utilizam para proteger seus ativos e garantir a segurança de cada transação.</p>
+                <h2 style="color: var(--dark-blue);">A escolha de quem lidera o mercado imobiliário</h2> 
                 <div class="logos-clients">
                     <img src="https://raw.githubusercontent.com/sacapinformacao/clientes/main/Lello_Imoveis%20copiar%20(1).png" alt="logo lello Imóveis">
                     <img src="https://raw.githubusercontent.com/sacapinformacao/clientes/main/Logo-Invista_pdf.png" alt="Logo InvistaI">
@@ -564,9 +669,10 @@
                 </div>
         </section>
 
+
         <section class="section section-white">
             <div class="container">
-                <h2 style="color: var(--medium-blue);">Análise para "Know Your Supplier" (KYS)</h2>
+                <h2 style="color: var(--dark-blue);">Análise para "Know Your Supplier" (KYS)</h2>
                 <p style="text-align: center;">Vá além da análise de clientes. Garanta a conformidade e a segurança de toda a sua cadeia de negócios, analisando fornecedores, parceiros e colaboradores.</p>
                 <div class="service-list">
                     <div class="service-item">
@@ -611,14 +717,14 @@
         <div class="footer-column">
             <h3>Serviços</h3>
             <ul>
-                <li><a href="https://sacapinformacao.github.io/BackGroundCheck/">Background Check</a></li>
-                <li><a href="https://sacapinformacao.github.io/Veiculos/">Análise de Veículos</a></li>
-                <li><a href="https://sacapinformacao.github.io/Enriquecimento/">Enriquecimento de Dados</a></li>
-                <li><a href="https://sacapinformacao.github.io/Compliance/">Compliance e LGPD</a></li>
                 <li><a href="https://sacapinformacao.github.io/Cadastral/">Validação Cadastral</a></li>
+                <li><a href="https://sacapinformacao.github.io/Enriquecimento/">Enriquecimento de Dados</a></li>
                 <li><a href="https://sacapinformacao.github.io/Credito/">Análise de Crédito</a></li>
+                <li><a href="https://sacapinformacao.github.io/BackGroundCheck/">Background Check</a></li>
                 <li><a href="https://sacapinformacao.github.io/checagem-pre-processual/">Checagem Pré-processual</a></li>
                 <li><a href="https://sacapinformacao.github.io/devedores-e-reus/">Localização de Devedores e Réus</a></li>
+                <li><a href="https://sacapinformacao.github.io/Veiculos/">Análise de Veículos</a></li>
+                <li><a href="https://sacapinformacao.github.io/Compliance/">Compliance e LGPD</a></li>
             </ul>
         </div>
         <div class="footer-column">
@@ -653,5 +759,31 @@
     </div>
   </footer>
 
+    <script>
+        // Função atualizada para enviar dados para o email
+        function submitFormToEmail(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário (que recarregaria a página)
+
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const cnpj = document.getElementById('cnpj').value;
+            
+            // Constroi o corpo do email. Use %0D%0A para quebras de linha.
+            const rawBody = `vim da pagina imoveis.html e quero minha demonstração.%0D%0A%0D%0ADados:%0D%0ANome: ${nome}%0D%0AEmail: ${email}%0D%0AWhatsApp: ${whatsapp}%0D%0ACNPJ: ${cnpj}`;
+            
+            // Define o destinatário e o assunto
+            const recipient = 'contato@apinformacao.com.br';
+            const subject = 'Solicitação de Demonstração - Mercado Imobiliário';
+            
+            // Monta a URL mailto:
+            const emailUrl = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${rawBody}`;
+            
+            // Redireciona para o cliente de email do usuário
+            window.location.href = emailUrl;
+
+            return false; // Evita qualquer outra ação do formulário
+        }
+    </script>
 </body>
 </html>
